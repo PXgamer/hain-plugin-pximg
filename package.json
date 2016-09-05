@@ -1,6 +1,6 @@
 {
   "name": "hain-plugin-pximg",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple PXIMG search plugin for Hain",
   "main": "index.js",
   "repository": {
@@ -18,7 +18,7 @@
     "got": "latest"
   },
   "hain": {
-    "prefix": "/px ",
+    "prefix": "/px",
     "usage": "Type /px to search PXIMG images.",
     "icon": "./icon.png",
     "redirect": "/px "
