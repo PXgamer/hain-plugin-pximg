@@ -8,9 +8,19 @@ Type this in the Hain input:
 /hpm install pximg
 ```
 
+First you'll need to get your API key from the [settings](https://pximg.xyz/settings/) page, this allows you to use the API for getting details. (Please note the API key in these images does not exist.)
+![Get the API Key](https://cdn.pximg.xyz/02a1dc05946faac9193935b415f0f294.png)
+
+Next you'll need to enter your API key into the Preferences in Hain. This can be done by typing `/preferences` and then entering your API key in the `hain-plugin-pximg` tab. (Preference changing is broken in Hain v0.5.0 so, either use v0.4.1, or change it manually in the `%localappdata%\hain-user\plugins\hain-plugin-pximg\preferences.json` file.)
+![Enter the API key into Hain](https://cdn.pximg.xyz/32cd07597f0ff7a99b176be9d0177179.png)
+
+Now you're ready to use the plugin.
+
 ## Usage
 
 Type /px followed by your image id, then select to go to that image:
 ```
 /px 5316
 ```
+
+![Example](https://cdn.pximg.xyz/382bec1b2d1c8ea01ce7e442a530f57e.gif)
