@@ -10,8 +10,6 @@ Type this in the Hain input:
 
 ## Usage
 
-![PXIMG plugin example](hain-plugin-pximg.gif)
-
 Type /px followed by your image id, then select to go to that image:
 ```
 /px 5316

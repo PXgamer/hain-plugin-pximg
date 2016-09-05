@@ -13,7 +13,6 @@
   "author": "pxgamer",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.6.1",
     "got": "latest"
   },
   "hain": {
