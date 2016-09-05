@@ -37,19 +37,30 @@ module.exports = (pluginContext) => {
 
         got(subs).then(response => {
             let data = JSON.parse(response.body);
-            data = {
-                id: data.Message.url,
-                payload: 'open',
-                title: 'Open Image <b>' + data.Message.public_hash + '</b>',
-                desc: '<span style="color:#005A9C;">( ' + data.Message.dimensions + ' ) [ ' + data.Message.uploader + ' ] [ ' + data.Message.type + ' ] [ ' + data.Message.uploaded_date + ' ]</span>',
-                icon: "#fa fa-picture-o"
-            };
-            res.add(data);
+			if (data.Status == true) {
+				data = {
+					id: data.Message.url,
+					payload: "open",
+					title: "Open Image <b>" + data.Message.public_hash + "</b>",
+					desc: "<span style=\"color:#005A9C;\">( " + data.Message.dimensions + " ) [ " + data.Message.uploader + " ] [ " + data.Message.type + " ] [ " + data.Message.uploaded_date + " ]</span>",
+					icon: "#fa fa-picture-o"
+				};
+			}
+			else if (data.Status == false) {
+				data = {
+					"id": query_trim,
+					"payload": "none",
+					"title": "Image <b>" + query_trim + "</b>",
+					"desc": "<span style=\"color:#A94442;\">"+data.Response+"</span>",
+					"icon": "#fa fa-exclamation-triangle"
+				};
+			}
+			res.add(data);
         });
     }
     
     function execute(id, payload) {
-        if (payload !== 'open') {
+        if (payload !== "open") {
             return;
         }
         shell.openExternal(id);
