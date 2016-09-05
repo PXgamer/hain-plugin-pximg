@@ -1,5 +1,7 @@
 # hain-plugin-pximg
-[Hain](https://github.com/appetizermonster/hain) plugin to search PXIMG.
+[Hain](https://github.com/appetizermonster/hain) plugin to search PXIMG.  
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/badges/build.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/build-status/master)
 
 ## Install
 
