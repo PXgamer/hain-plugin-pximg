@@ -15,10 +15,10 @@ module.exports = (pluginContext) => {
 
         if (query_trim.length === 0) {
             return res.add({
-            id: "https://pximg.xyz/browse/",
-            payload: 'open',
-            title: "Browse",
-            desc: 'View all images on PXIMG."'
+				id: "https://pximg.xyz/browse/",
+				payload: 'open',
+				title: "Browse",
+				desc: 'View all images on PXIMG."'
 			});
         }
 
@@ -30,7 +30,13 @@ module.exports = (pluginContext) => {
         });
 		
 		if (isNaN(query_trim)) {
-			return;
+			return res.add({
+				"id": query_trim,
+				"payload": "none",
+				"title": "Invalid Image ID: <b>" + query_trim + "</b>",
+				"desc": "<span style=\"color:#A94442;\">The image id should contain numbers only.</span>",
+				"icon": "#fa fa-exclamation-triangle"
+			});
 		}
 
         let subs = "https://pximg.xyz/api/v2/images/id/" + query_trim + "?api_key=" + api_key;

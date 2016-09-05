@@ -1,6 +1,6 @@
 {
   "name": "hain-plugin-pximg",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple PXIMG search plugin for Hain",
   "main": "index.js",
   "repository": {
