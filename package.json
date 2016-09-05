@@ -1,0 +1,25 @@
+{
+  "name": "hain-plugin-pximg",
+  "version": "0.0.1",
+  "description": "A simple PXIMG search plugin for Hain",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxgamer/hain-plugin-pximg.git"
+  },
+  "keywords": [
+    "hain-0.5.0"
+  ],
+  "author": "pxgamer",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.6.1",
+    "got": "latest"
+  },
+  "hain": {
+    "prefix": "/px ",
+    "usage": "Type /px to search PXIMG images.",
+    "icon": "./icon.png",
+    "redirect": "/px "
+  }
+}

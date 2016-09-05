@@ -1,2 +1,18 @@
 # hain-plugin-pximg
-A PXIMG plugin for Hain.
+[Hain](https://github.com/appetizermonster/hain) plugin to search PXIMG.
+
+## Install
+
+Type this in the Hain input:
+```
+/hpm install pximg
+```
+
+## Usage
+
+![PXIMG plugin example](hain-plugin-pximg.gif)
+
+Type /px followed by your image id, then select to go to that image:
+```
+/px 5316
+```
