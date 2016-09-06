@@ -31,7 +31,7 @@ module.exports = (pluginContext) => {
         });
 		
 		if (api_key === '') {
-            res.add({
+            return res.add({
 				id: "no_api_key",
 				payload: 'prefs',
 				title: "No API Key Found",
