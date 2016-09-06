@@ -25,4 +25,9 @@ Type /px followed by your image id, then select to go to that image:
 /px 5316
 ```
 
+You can also check your winnings on the site by using:
+```
+/px winnings
+```
+
 ![Example](https://cdn.pximg.xyz/382bec1b2d1c8ea01ce7e442a530f57e.gif)
