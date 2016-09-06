@@ -1,6 +1,9 @@
 'use strict';
 
 const got = require('got');
+const writeFile = require('write');
+
+const preview_html = '<html><body><img src="%imageurl%"></body></html>';
 
 module.exports = (pluginContext) => {
 	
@@ -94,7 +97,8 @@ module.exports = (pluginContext) => {
 					payload: "open",
 					title: "Open Image <b>" + data.Message.public_hash + "</b>",
 					desc: "<span style=\"color:#005A9C;\">( " + data.Message.dimensions + " ) [ " + data.Message.uploader + " ] [ " + data.Message.type + " ] [ " + data.Message.uploaded_date + " ]</span>",
-					icon: "#fa fa-picture-o"
+					icon: "#fa fa-picture-o",
+					preview: true
 				};
 			}
 			else if (data.Status == false) {
@@ -128,9 +132,15 @@ module.exports = (pluginContext) => {
         }
         shell.openExternal(id);
     }
+	
+	function renderPreview(id, payload, render) {
+		var preview = preview_html.replace('%imageurl%', id);
+		render(preview);
+	}
 
     return {
         search,
-        execute
+        execute,
+		renderPreview
     }
 }
