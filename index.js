@@ -2,7 +2,7 @@
 
 const got = require('got');
 
-const preview_html = '<html><body><img src="%imageurl%"></body></html>';
+const preview_html = '<html><body><img style="max-width: 100%;max-height: 100%;" src="%imageurl%"></body></html>';
 
 module.exports = (pluginContext) => {
 	
