@@ -6,6 +6,7 @@ module.exports = (pluginContext) => {
 	
     const logger = pluginContext.logger;
     const prefObj = pluginContext.preferences;
+    const app = pluginContext.app;
     const pref = prefObj.get();
     const shell = pluginContext.shell;
     const api_key = pref.api_key;
@@ -28,6 +29,16 @@ module.exports = (pluginContext) => {
             title: "Browse",
             desc: 'View all images on PXIMG."'
         });
+		
+		if (api_key === '') {
+            res.add({
+				id: "no_api_key",
+				payload: 'prefs',
+				title: "No API Key Found",
+				desc: "<span style=\"color:#f0ad4e;\">Please add your API key in Preferences.</span>",
+				icon: "#fa fa-exclamation-triangle"
+			});
+        }
 		
 		if (isNaN(query_trim)) {
 			return res.add({
@@ -66,6 +77,10 @@ module.exports = (pluginContext) => {
     }
     
     function execute(id, payload) {
+		if (payload == 'prefs') {
+			app.openPreferences('hain-plugin-pximg');
+			return;
+		}
         if (payload !== "open") {
             return;
         }
