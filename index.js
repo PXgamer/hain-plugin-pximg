@@ -1,7 +1,6 @@
 'use strict';
 
 const got = require('got');
-const writeFile = require('write');
 
 module.exports = (pluginContext) => {
 	
@@ -51,7 +50,7 @@ module.exports = (pluginContext) => {
 				
 				if (data.status == true) {
 					for (var k in data.Message) {
-						if (!data.Message.hasOwnProperty(k)) continue;
+						if (!data.Message.hasOwnProperty(k)) { continue; }
 						var o = data.Message[k];
 						var d = {
 							id: o.licence_code,
