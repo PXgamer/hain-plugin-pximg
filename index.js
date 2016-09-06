@@ -1,6 +1,7 @@
 'use strict';
 
 const got = require('got');
+const writeFile = require('write');
 
 module.exports = (pluginContext) => {
 	
@@ -9,6 +10,7 @@ module.exports = (pluginContext) => {
     const app = pluginContext.app;
     const pref = prefObj.get();
     const shell = pluginContext.shell;
+    const clipboard = pluginContext.clipboard;
     const api_key = pref.api_key;
 
     function search(query, res) {
@@ -39,6 +41,39 @@ module.exports = (pluginContext) => {
 				icon: "#fa fa-exclamation-triangle"
 			});
         }
+		
+		if (query_trim.toLowerCase() == 'winnings') {
+			
+			let subs = "https://pximg.xyz/api/v2/me/giveaway/check?api_key=" + api_key;
+			
+			got(subs).then(response => {
+				let data = JSON.parse(response.body);
+				
+				if (data.status == true) {
+					for (var k in data.Message) {
+						if (!data.Message.hasOwnProperty(k)) continue;
+						var o = data.Message[k];
+						var d = {
+							id: o.licence_code,
+							payload: "copy_to_clipboard",
+							title: "<b>" + o.title + "</b>",
+							desc: "<span style=\"color:#005A9C;\">" + o.licence_code + " - " + o.url + "</span>",
+							icon: "#fa fa-gift"
+						};
+						res.add(d);
+					}
+				}
+			});
+			return;
+		}
+		else {
+			res.add({
+				id: "/px winnings",
+				payload: 'set_query',
+				title: "Check Giveaway Winnings",
+				desc: 'Check your licence codes for giveaways that you\'ve won."'
+			});
+		}
 		
 		if (isNaN(query_trim)) {
 			return res.add({
@@ -79,6 +114,14 @@ module.exports = (pluginContext) => {
     function execute(id, payload) {
 		if (payload == 'prefs') {
 			app.openPreferences('hain-plugin-pximg');
+			return;
+		}
+		if (payload == 'set_query') {
+			app.setQuery(id);
+			return;
+		}
+		if (payload == 'copy_to_clipboard') {
+			clipboard.writeText(id);
 			return;
 		}
         if (payload !== "open") {
