@@ -5,6 +5,11 @@
       "type": "string",
       "title": "API Key",
       "default": ""
+    },
+	"show_preview": {
+      "type": "boolean",
+      "title": "Show Preview",
+      "default": false
     }
   }
 }

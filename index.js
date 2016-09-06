@@ -1,7 +1,6 @@
 'use strict';
 
 const got = require('got');
-const writeFile = require('write');
 
 const preview_html = '<html><body><img src="%imageurl%"></body></html>';
 
@@ -98,7 +97,7 @@ module.exports = (pluginContext) => {
 					title: "Open Image <b>" + data.Message.public_hash + "</b>",
 					desc: "<span style=\"color:#005A9C;\">( " + data.Message.dimensions + " ) [ " + data.Message.uploader + " ] [ " + data.Message.type + " ] [ " + data.Message.uploaded_date + " ]</span>",
 					icon: "#fa fa-picture-o",
-					preview: true
+					preview: pref.show_preview
 				};
 			}
 			else if (data.Status == false) {
