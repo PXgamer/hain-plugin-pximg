@@ -5,7 +5,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/badges/build.png?b=master)](https://scrutinizer-ci.com/g/PXgamer/hain-plugin-pximg/build-status/master) 
 [![Release Version](https://img.shields.io/github/release/pxgamer/hain-plugin-pximg.svg?maxAge=2592000)](https://github.com/PXgamer/hain-plugin-pximg/releases) 
 [![NPM Downloads](https://img.shields.io/npm/dt/hain-plugin-pximg.svg?maxAge=2592000)](https://www.npmjs.com/package/hain-plugin-pximg) 
-![Dependency Statuses](https://img.shields.io/librariesio/github/pxgamer/hain-plugin-pximg.svg?maxAge=2592000) 
+[![Dependency Statuses](https://img.shields.io/librariesio/github/pxgamer/hain-plugin-pximg.svg?maxAge=2592000)](https://libraries.io/npm/hain-plugin-pximg) 
 
 ## Install
 
