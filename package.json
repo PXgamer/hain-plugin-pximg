@@ -20,7 +20,7 @@
   "hain": {
     "prefix": "/px",
     "usage": "Type /px to search PXIMG images.",
-    "icon": "./icon.png",
+    "icon": "/icon.png",
     "redirect": "/px "
   }
 }
