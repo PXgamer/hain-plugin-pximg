@@ -18,7 +18,9 @@ First you'll need to get your API key from the *Settings* page, this allows you 
 
 Next you'll need to enter your API key into the Preferences in Hain. This can be done by typing `/preferences` and then entering your API key in the `hain-plugin-pximg` tab.
 
-**Note:** Preference changing is broken in Hain v0.5.0 so, either use v0.4.1, or change it manually in the `%localappdata%\hain-user\plugins\hain-plugin-pximg\preferences.json` file.
+**Note:** Preference changing is broken in Hain v0.5.0 so either:
+ - use v0.4.1
+ - change it manually in the `%localappdata%\hain-user\plugins\hain-plugin-pximg\preferences.json` file.
 
 Now you're ready to use the plugin.
 
