@@ -1,6 +1,6 @@
 # hain-plugin-pximg
 
-[![Release Version](https://img.shields.io/github/release/pxgamer/hain-plugin-pximg.svg?maxAge=2592000)](https://github.com/pxgamer/hain-plugin-pximg/releases)
+[![Release Version](https://img.shields.io/npm/v/hain-plugin-pximg.svg)](https://www.npmjs.com/package/hain-plugin-pximg)
 [![NPM Downloads](https://img.shields.io/npm/dt/hain-plugin-pximg.svg?maxAge=2592000)](https://www.npmjs.com/package/hain-plugin-pximg)
 [![Dependency Statuses](https://img.shields.io/librariesio/github/pxgamer/hain-plugin-pximg.svg?maxAge=2592000)](https://libraries.io/npm/hain-plugin-pximg)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
@@ -24,7 +24,7 @@ Now you're ready to use the plugin.
 
 ## Usage
 
-Type /px followed by your image id, then select to go to that image:
+Type `/px` followed by your image id, then select to go to that image:
 
 ```
 /px 5316
