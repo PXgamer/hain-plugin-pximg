@@ -5,7 +5,6 @@ const got = require('got')
 const preview_html = '<html><body><img style="max-width: 100%;max-height: 100%;" src="%imageurl%"></body></html>'
 
 module.exports = (pluginContext) => {
-
   const logger = pluginContext.logger
   const prefObj = pluginContext.preferences
   const app = pluginContext.app
@@ -51,13 +50,14 @@ module.exports = (pluginContext) => {
 
         if (data.status == true) {
           for (var k in data.Message) {
-            if (!data.Message.hasOwnProperty(k)) { continue; }
+            if (!data.Message.hasOwnProperty(k)) { continue }
             var o = data.Message[k]
             var d = {
               id: o.licence_code,
               payload: 'copy_to_clipboard',
               title: '<b>' + o.title + '</b>',
-              desc: '<span style="color:#005A9C;">' + o.licence_code + ' - ' + o.url + '</span>',
+              desc: '<span style="color:#005a9c;">' + o.licence_code + ' - ' +
+                    o.url + '</span>',
               icon: '#fa fa-gift'
             }
             res.add(d)
@@ -65,7 +65,7 @@ module.exports = (pluginContext) => {
         }
       })
       return
-    }else {
+    } else {
       res.add({
         id: '/px winnings',
         payload: 'set_query',
@@ -79,12 +79,13 @@ module.exports = (pluginContext) => {
         'id': query_trim,
         'payload': 'none',
         'title': 'Invalid Image ID: <b>' + query_trim + '</b>',
-        'desc': '<span style="color:#A94442;">The image id should contain numbers only.</span>',
+        'desc': '<span style="color:#a94442;">The image id should contain numbers only.</span>',
         'icon': '#fa fa-exclamation-triangle'
       })
     }
 
-    let subs = 'https://pximg.xyz/api/v2/images/id/' + query_trim + '?api_key=' + api_key
+    let subs = 'https://pximg.xyz/api/v2/images/id/' + query_trim + '?api_key=' +
+               api_key
 
     got(subs).then(response => {
       let data = JSON.parse(response.body)
@@ -93,18 +94,21 @@ module.exports = (pluginContext) => {
           id: data.Message.url,
           payload: 'open',
           title: 'Open Image <b>' + data.Message.public_hash + '</b>',
-          desc: '<span style="color:#005A9C;">( ' + data.Message.dimensions + ' ) [ ' + data.Message.uploader + ' ] [ ' + data.Message.type + ' ] [ ' + data.Message.uploaded_date + ' ]</span>',
+          desc: '<span style="color:#005a9c;">( ' + data.Message.dimensions +
+                ' ) [ ' + data.Message.uploader + ' ] [ ' + data.Message.type +
+                ' ] [ ' + data.Message.uploaded_date + ' ]</span>',
           icon: '#fa fa-picture-o',
           preview: pref.show_preview
         }
-      }
-      else if (data.Status == false) {
-        data = {
-          'id': query_trim,
-          'payload': 'none',
-          'title': 'Image <b>' + query_trim + '</b>',
-          'desc': '<span style="color:#A94442;">' + data.Response + '</span>',
-          'icon': '#fa fa-exclamation-triangle'
+      } else {
+        if (data.Status == false) {
+          data = {
+            'id': query_trim,
+            'payload': 'none',
+            'title': 'Image <b>' + query_trim + '</b>',
+            'desc': '<span style="color:#a94442;">' + data.Response + '</span>',
+            'icon': '#fa fa-exclamation-triangle'
+          }
         }
       }
       res.add(data)
@@ -138,5 +142,6 @@ module.exports = (pluginContext) => {
   return {
     search,
     execute,
-  renderPreview}
+    renderPreview
+  }
 }
